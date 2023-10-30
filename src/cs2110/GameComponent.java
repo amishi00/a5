@@ -11,6 +11,9 @@ import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+
+//testing if this comment appears!
+
 /**
  * GUI component for Click-a-Dot game board. Maintains and visualizes game state and responds to
  * mouse inputs. Allows programmatic control of game settings and property access to game state.
