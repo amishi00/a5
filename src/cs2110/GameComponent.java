@@ -206,6 +206,15 @@ public class GameComponent extends JPanel implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
         // TODO 8: Implement this method according to its specifications.
+        //TODO what does it mean to 'notify observers'
+        if(isActive){
+            int mouseX = e.getX();
+            int mouseY = e.getY();
+            if(target.checkHit(mouseX,mouseY)){
+                setScore(getScore()+1);
+                repaint();
+            }
+        }
         // The X and Y coordinates of the mouse press can be found using `MouseEvent.getX` and
         // `.getY`. [1]
         // Do not modify the `score` field directly; use `setScore`.
@@ -271,6 +280,12 @@ public class GameComponent extends JPanel implements MouseListener {
          * our current position. Circle is filled red if we have been hit, otherwise blue.
          */
         void paintDot(Graphics g) {
+
+            if(isHit){
+                g.setColor(Color.RED);
+            }else{
+                g.setColor(Color.BLUE);
+            }
             g.fillOval(x,y,2*radius,2*radius);
             // TODO 6: Implement this method according to its specifications.
             // Use these classes and methods: Graphics.setColor, Graphics.fillOval [1]; Color [2].
@@ -313,10 +328,20 @@ public class GameComponent extends JPanel implements MouseListener {
          * circular area and it was not already "hit"; return false otherwise.
          */
         boolean checkHit(int cx, int cy) {
+            if (!isHit) {
+                int dx = cx - (x + radius); // Horizontal distance from the center
+                int dy = cy - (y + radius); // Vertical distance from the center
+                int distanceSquared = dx * dx + dy * dy; // Squared distance
+
+                if (distanceSquared <= radius * radius) {
+                    isHit = true;
+                    return true;
+                }
+            }
+            return false;
             // TODO 7: Implement this method according to its specifications. Delete the
             // `throw` statement and replace it with your own implementation.
             // No Swing methods are needed, just high-school geometry.
-            throw new UnsupportedOperationException("Unimplemented: checkHit");
         }
     }
 }
