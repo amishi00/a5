@@ -18,12 +18,16 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.JFileChooser;
+import java.io.File;
+import java.io.FileWriter;
 
 /**
  * Main class for Click-a-Dot game. Creates window with game board, score label, start button, and
@@ -237,6 +241,7 @@ public class GameMain {
     private static void saveScore(JFrame frame, int score) {
 
         // TODO 15:
+
         // * Show a "save file" dialog [1].
         // * If the user selects a file, write the value in `score` on a new
         // line of text at the end of the file, retaining its former contents
@@ -249,5 +254,18 @@ public class GameMain {
 
         //Create a file chooser
 
+        JFileChooser fileChooser = new JFileChooser();
+
+        int returnValue = fileChooser.showSaveDialog(frame);
+
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            try (FileWriter writer = new FileWriter(selectedFile, true)) {
+                writer.write(score + "\n");
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(frame, "Error: " + e.getClass().getName() + " - " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 }
