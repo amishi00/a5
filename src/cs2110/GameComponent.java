@@ -61,9 +61,7 @@ public class GameComponent extends JPanel implements MouseListener {
      * Construct a new GameComponent with default settings.
      */
     public GameComponent() {
-        // Set up timer with initial delay of 0 (so target is shown as soon as
-        // game starts). Coalescing queued actions ensures targets are not
-        // skipped due to stalls or leftover events after a game is restarted.
+        // Set up timer with initial delay of 0
         timer = new Timer(targetTimeMillis, (ActionEvent e) -> timeout());
         timer.setInitialDelay(0);
         timer.setCoalesce(true);
@@ -71,8 +69,7 @@ public class GameComponent extends JPanel implements MouseListener {
         // This component reacts to mouse events.
         addMouseListener(this);
 
-        // Set a recommended size for the game board (prevents it from
-        // disappearing when frame is packed).
+        // Set a recommended size for the game board
         setPreferredSize(new Dimension(480, 360));
     }
 
@@ -105,10 +102,9 @@ public class GameComponent extends JPanel implements MouseListener {
      * count, and requests a repaint.
      */
     private void timeout() {
-        // TODO 5: Implement this method according to its specification.
-        if(targetCount >= maxTargets) {
+        if (targetCount >= maxTargets) {
             stopGame();
-        }else{
+        } else{
             target.respawn(getWidth(),getHeight());
             targetCount++;
             repaint();
@@ -188,14 +184,6 @@ public class GameComponent extends JPanel implements MouseListener {
             g.setColor(Color.BLACK);
             g.fillRect(0,0,getWidth(), getHeight());
         }
-        // TODO 4: Implement this method according to its specification.
-
-
-        // Use these classes and methods: Graphics.setColor, Graphics.fillRect [1]; Color [2]
-        // [1]:
-        // https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Graphics.html
-        // [2]: https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html
-
     }
 
     /**
@@ -205,8 +193,6 @@ public class GameComponent extends JPanel implements MouseListener {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-        // TODO 8: Implement this method according to its specifications.
-        //TODO what does it mean to 'notify observers'
         if(isActive){
             int mouseX = e.getX();
             int mouseY = e.getY();
@@ -215,18 +201,9 @@ public class GameComponent extends JPanel implements MouseListener {
                 repaint();
             }
         }
-        // The X and Y coordinates of the mouse press can be found using `MouseEvent.getX` and
-        // `.getY`. [1]
-        // Do not modify the `score` field directly; use `setScore`.
-        // [1]:
-        // https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/event/MouseEvent.html
-
     }
 
-    // The remaining MouseListener event handlers are required to be present because of the
-    // `implements`
-    // declaration of this class. But they are unused by this game.
-
+    //unused
     @Override
     public void mouseReleased(MouseEvent e) {
     }
@@ -287,12 +264,6 @@ public class GameComponent extends JPanel implements MouseListener {
                 g.setColor(Color.BLUE);
             }
             g.fillOval(x,y,2*radius,2*radius);
-            // TODO 6: Implement this method according to its specifications.
-            // Use these classes and methods: Graphics.setColor, Graphics.fillOval [1]; Color [2].
-            // [1]:
-            // https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Graphics.html
-            // [2]:
-            // https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html
         }
 
         /**
@@ -339,9 +310,6 @@ public class GameComponent extends JPanel implements MouseListener {
                 }
             }
             return false;
-            // TODO 7: Implement this method according to its specifications. Delete the
-            // `throw` statement and replace it with your own implementation.
-            // No Swing methods are needed, just high-school geometry.
         }
     }
 }
