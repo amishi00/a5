@@ -75,7 +75,6 @@ public class GameMain {
         scoreLabel.setFont(scoreLabel.getFont().deriveFont(24.0f));
         scoreLabel.setForeground(Color.getHSBColor(215, 57, 48));
 
-
         frame.add(scoreLabel, BorderLayout.PAGE_START);
         // See the BorderLayout tutorial [1] for example code that you can adapt.
         // [1]: https://docs.oracle.com/javase/tutorial/uiswing/layout/border.html
@@ -164,8 +163,8 @@ public class GameMain {
     private static void addSliderLabels(JSlider slider, String minLabel,
             String maxLabel) {
         Hashtable<Integer, JLabel> labels = new Hashtable<>();
-        labels.put(slider.getMinimum(),new JLabel(minLabel));
-        labels.put(slider.getMaximum(),new JLabel(maxLabel));
+        labels.put(slider.getMinimum(), new JLabel(minLabel));
+        labels.put(slider.getMaximum(), new JLabel(maxLabel));
         slider.setLabelTable(labels);
         slider.setPaintLabels(true);
 
@@ -176,11 +175,11 @@ public class GameMain {
      */
     private static JComponent makeSliderPanel(JSlider slider, String title) {
         JPanel p = new JPanel(new BorderLayout());
-        p.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+        p.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
         JLabel newTitle = new JLabel(title);
         newTitle.setFont(newTitle.getFont().deriveFont(16.0f));
         p.add(newTitle, BorderLayout.PAGE_START);
-        p.add(slider,BorderLayout.LINE_END);
+        p.add(slider, BorderLayout.LINE_END);
 
         return p;
     }
@@ -202,7 +201,9 @@ public class GameMain {
                 out.write(score + "\n");
             } catch (Exception e) {
 
-                JOptionPane.showMessageDialog(frame, "Error: " + e.getClass().getName() + " - " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(frame,
+                        "Error: " + e.getClass().getName() + " - " + e.getMessage(), "Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
     }
