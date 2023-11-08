@@ -2,6 +2,7 @@ package cs2110;
 
 import com.sun.jdi.IntegerValue;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
@@ -72,6 +73,8 @@ public class GameMain {
         JLabel scoreLabel = new JLabel("Score: " + game.getScore(),
                 SwingConstants.CENTER);
         scoreLabel.setFont(scoreLabel.getFont().deriveFont(24.0f));
+        scoreLabel.setForeground(Color.getHSBColor(215, 57, 48));
+
 
         // TODO 1: Add `scoreLabel` to top of frame.
         frame.add(scoreLabel, BorderLayout.PAGE_START);

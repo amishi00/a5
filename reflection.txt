@@ -35,4 +35,5 @@ Hours spent working on this assignment: 4.5
 3. Did you embellish your program in any way?  If so, describe your changes /
    improvements.
 
-   Answer:
+   Answer: Yes, to further explore the features of JLabel, we decided that we wanted
+   the Score Label to have some color. We used a Hue, Saturation, and Brightness picker to get the color we wanted.
