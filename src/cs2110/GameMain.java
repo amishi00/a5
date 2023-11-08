@@ -8,6 +8,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.BufferedWriter;
+import java.io.PrintWriter;
 import java.util.Hashtable;
 
 import javax.swing.BorderFactory;
@@ -41,6 +43,7 @@ public class GameMain {
     public static void main(String[] args) {
         // Creation of window must occur on Event Dispatch Thread.
         SwingUtilities.invokeLater(() -> createAndShowGUI());
+
     }
 
     /**
@@ -260,8 +263,9 @@ public class GameMain {
 
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            try (FileWriter writer = new FileWriter(selectedFile, true)) {
-                writer.write(score + "\n");
+            try (PrintWriter out =
+                    new PrintWriter(new BufferedWriter(new FileWriter(selectedFile, true)))) {
+                out.write(score + "\n");
             } catch (Exception e) {
 
                 JOptionPane.showMessageDialog(frame, "Error: " + e.getClass().getName() + " - " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

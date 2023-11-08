@@ -2,10 +2,10 @@
 
 ## Submitter metadata
 
-Partner 1: Firstname Lastname (NetID)  - TODO
-Partner 2: Firstname Lastname (NetID)  - delete if working solo
+Partner 1: Firstname Lastname (NetID)  - Amishi Gupta (ag2424)
+Partner 2: Firstname Lastname (NetID)  - Shriya Sudhakar (ss3576)
 
-Hours spent working on this assignment: 0.0  - TODO
+Hours spent working on this assignment: 4.5
 
 ## Verification questions
 
@@ -14,22 +14,25 @@ Hours spent working on this assignment: 0.0  - TODO
    shown in your error dialog?  (note: answers will vary depending on your
    operating system).
 
-   Answer: TODO
+   Answer: When trying to save a file in a read-only file format, the Error message displays :
+    "Error: java.io.FileNotFoundException - /Users/ash/Documents/newScore (Operation not permitted)"
 
 ## Reflection questions
 
 1. Which of the Swing tutorial pages did you find the most interesting and/or
    helpful while implementing your graphical application?
 
-   Answer: TODO
+   Answer:The slider tutorial pages were the most interesting but using the EventListener tutorials
+   and learning how to respond to specific user interactions was the most helpful.
 
 2. Are you aware of any areas where your submission is not working as intended?
    If so, describe the issue and what you did to try to diagnose it.  Otherwise,
    describe how you verified that your submission fulfilled its requirements.
 
-   Answer: TODO
+   Answer: We went through the submission requirements and made sure that our program matched all
+   the required expectations.
 
 3. Did you embellish your program in any way?  If so, describe your changes /
    improvements.
 
-   Answer: TODO
+   Answer:
